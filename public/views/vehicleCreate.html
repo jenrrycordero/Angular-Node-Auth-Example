@@ -1,0 +1,147 @@
+<style>
+    .driverErrorClass{
+        border: 1px solid red;
+    }
+    ul.suggestions-list{
+        padding: 10px 0;
+        margin: 0;
+        border: 1px solid #000000;
+    }
+
+    ul.suggestions-list li{
+        list-style: none;
+        border-bottom: 1px solid #cccccc;
+    }
+
+    ul.suggestions-list li:hover{
+        background-color: #66afe9;
+        cursor: pointer;
+    }
+</style>
+
+<div class="container">
+    <h1>Vehicle Registration: </h1>
+    <hr>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+            <div class="panel panel-default">
+
+            </div>
+        </div>
+
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+            <div class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+                This is an <strong>.alert</strong>. Use this to show important messages to the user, but remember we will use toast
+            </div>
+            <h3>Vehicle Features</h3>
+
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Tag:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" ng-model="vehicle.tag">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Color:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" ng-model="vehicle.color">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Mileage</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="number" ng-model="vehicle.mileage">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Status:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" ng-model="vehicle.status">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Specification:</label>
+                    <div class="col-md-8">
+                        <label>Brand:</label>
+                        <select ng-model="vehicle.brand">
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Acura">Acura</option>
+                            <option value="Infinity">Infinity</option>
+                            <option value="Maceraty">Maceraty</option>
+                        </select>
+                        /
+                        <label>Model:</label>
+                        <select ng-model="vehicle.model">
+                            <option value="16"> 2016</option>
+                            <option value="17"> 2017</option>
+                            <option value="18"> 2018</option>
+                            <option value="19"> 2019</option>
+                            <option value="20"> 2020</option>
+                            <option value="21"> 2021</option>
+                            <option value="22"> 2022</option>
+                            <option value="23"> 2023</option>
+                        </select>
+                        <label>Year:</label>
+                        <input class="form-control" type="text" ng-model="vehicle.year" style="display: inline; width: 55px;">
+                    </div>
+                </div>
+
+                <div class="form-group" style="border: 1px solid #000000; border-radius: 4px; padding: 10px">
+                    <label class="col-md-3 control-label">Drivers:</label>
+                    <div class="col-md-8">
+                        <input type="text" placeholder="Search for drivers" ng-class="{'driverErrorClass': driverError}" ng-keydown="checkKeyDown($event)" ng-keyup="checkKeyUp($event)"  ng-model="vehicle.driver" ng-change="search()" />
+                        <span class="bg-danger" ng-show="driverError">{{vehicle.message}}</span>
+                        <ul class="suggestions-list">
+                            <li ng-repeat="suggestion in suggestions track by $index" ng-class="{active : selectedIndex === $index}" ng-click="AssignValueAndHide($index)">{{suggestion}}</li>
+                        </ul>
+
+                        <button class="btn btn-success" ng-click="addDriver()">Add driver</button>
+                        <small>Select the drivers for this vehicle</small>
+
+                        <table class="table table-striped table-bordered" ng-show="vehicle.drivers.length" style="margin-top: 20px">
+                            <thead>
+                            <tr class="bg-success">
+                                <th>License</th>
+                                <th>Full name</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="driver in vehicle.drivers">
+                                <td>{{driver.license}}</td>
+                                <td>{{driver.fullname}}</td>
+                                <td><button class="btn btn-danger" ng-click="removeDriver($index)">Remove</button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Description:</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" ng-model="vehicle.description"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input type="submit" class="btn btn-primary" value="Save Changes">
+                        <span></span>
+                        <input type="reset" class="btn btn-default" value="Cancel">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<hr>

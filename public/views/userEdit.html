@@ -1,0 +1,119 @@
+
+<div class="container">
+    <h1>Edit Profile of user: <small>{{user.fullname}}</small></h1>
+    <hr>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+            <div class="text-center">
+                <img ng-src="{{user.avatar}}" class="avatar img-circle" alt="avatar">
+                <h6>Upload a different photo...</h6>
+
+                <input type="file" class="form-control">
+            </div>
+        </div>
+
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+            <div class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+                This is an <strong>.alert</strong>. Use this to show important messages to the user, but remember we will use toast
+            </div>
+            <h3>Personal info</h3>
+
+            <form class="form-horizontal" role="form" ng-submit="userUpdate()">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Full name:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" ng-model="user.fullname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Email:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="email" ng-model="user.username">
+                        <small>You will use your e-mail as a username in this app.</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Password:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="password" ng-model="user.password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Confirm password:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="password" ng-model="user.confirmPassword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Phone:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" ng-model="user.phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Driver license:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" ng-model="user.driver_license">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Expiry date:</label>
+                    <div class="col-md-8">
+                        <select ng-model="user.license_exp_month">
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        /
+                        <select ng-model="user.license_exp_year">
+                            <option value="16"> 2016</option>
+                            <option value="17"> 2017</option>
+                            <option value="18"> 2018</option>
+                            <option value="19"> 2019</option>
+                            <option value="20"> 2020</option>
+                            <option value="21"> 2021</option>
+                            <option value="22"> 2022</option>
+                            <option value="23"> 2023</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Role:</label>
+                    <div class="col-md-8">
+                        <select ng-model="user.role">
+                            <option value="driver">Driver</option>
+                            <option value="admin">Admin</option>
+                            <option value="owner">Owner</option>
+                            <option value="installer">Installer</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input type="submit" class="btn btn-primary" value="Save Changes">
+                        <span></span>
+                        <a ui-sref="admin.users" class="btn btn-default">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<hr>

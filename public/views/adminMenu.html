@@ -1,0 +1,22 @@
+<h1>Admin</h1>
+<div style="display: inline-block;vertical-align: middle;">
+    <img ng-src="{{welcomeAvatar}}" alt="" style="width: 40px; border-radius: 50%"/>
+</div>
+<h3 style="text-transform: capitalize;display: inline-block;padding: 0;margin: 0;">
+    Welcome: {{welcomeName}}
+</h3>
+
+<ul>
+    <li>
+        <a ui-sref="admin">Dashboard</a>
+    </li>
+    <li>
+        <a ui-sref=".users">Users</a>
+    </li>
+    <li>
+        <a ui-sref=".vehicles">Vehicles</a>
+    </li>
+    <li>
+        <a href="" ng-click="logout()">Logout</a>
+    </li>
+</ul>

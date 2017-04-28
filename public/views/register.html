@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title"><i class="glyphicon glyphicon-globe"></i> Sign up!</h1>
+                </div>
+                <div class="panel-body">
+                    <form role="form" ng-submit="register()">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Fullname" type="text" ng-model="user.fullname">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="email" placeholder="Email" ng-class="errorInput" ng-model="user.email"/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" type="password" ng-model="user.password">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Phone" type="text" ng-model="user.phone">
+                            </div>
+
+                            <h5>Address:</h5>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Street1"  type="text" ng-model="user.address.street1">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Street2"  type="text" ng-model="user.address.street2">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="city" type="text" ng-model="user.address.city">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="State" type="text" ng-model="user.address.state">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Zip Code" type="text" ng-model="user.address.zip_code">
+                            </div>
+
+                            <h5>License:</h5>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Driver license number" type="text" ng-class="errorInput" ng-model="user.driver_license">
+                            </div>
+                            <div class="form-group">
+                                <small>Expiry Date:</small>
+                                <select ng-model="user.license_exp_month">
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                /
+                                <select ng-model="user.license_exp_year">
+                                    <option value="16"> 2016</option>
+                                    <option value="17"> 2017</option>
+                                    <option value="18"> 2018</option>
+                                    <option value="19"> 2019</option>
+                                    <option value="20"> 2020</option>
+                                    <option value="21"> 2021</option>
+                                    <option value="22"> 2022</option>
+                                    <option value="23"> 2023</option>
+                                </select>
+                            </div>
+
+                            <!-- Change this to a button or input when using this as a form -->
+                            <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center">
+                Already an Account? <a ui-sref="login">Login</a>
+            </div>
+            <br/>
+            <div class="text-center" ng-if="err_message" ng-class="error">{{err_message}}</div>
+            <div class="text-center text-success" ng-if="message">{{message}}. Please Check your email to confirm</div>
+
+        </div>
+    </div>
+</div>

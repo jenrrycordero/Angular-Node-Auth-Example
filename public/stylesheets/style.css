@@ -1,0 +1,52 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.userList li{
+  margin-bottom: 20px;
+}
+
+
+.error{
+  color: red
+}
+
+.error-input{
+  border: 2px solid red;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  bottom:0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.main-section {
+  background-image: url('/public/images/truck.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.main-section .wrapper-content{
+  width:100%;
+  position:absolute;
+  top: 50%;
+  -webkit-transition: translateY(-50%);
+  -moz-transition: translateY(-50%);
+  -ms-transition: translateY(-50%);
+  -o-transition: translateY(-50%);
+  transition: translateY(-50%);
+}
+
+.main-section .wrapper-content h2{
+  color: #fff;
+}
